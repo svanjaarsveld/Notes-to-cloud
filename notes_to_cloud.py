@@ -9,18 +9,18 @@ Created on Fri Jan 10 08:54:37 2025
 #import gspread
 #import pandas as pd
 #from google.oauth2.service_account import Credentials
-#import cv2
+import cv2
 from  PIL import Image
 import streamlit as st
-#import easyocr
+import easyocr
 #from pathlib import Path
 
 
-#def recognize_text(img_path):
-#    '''loads an image and recognizes text.'''
-#    
-#    reader = easyocr.Reader(['en'])
-#    return reader.readtext(img_path)
+def recognize_text(img_path):
+    '''loads an image and recognizes text.'''
+    
+    reader = easyocr.Reader(['en'])
+    return reader.readtext(img_path)
 
 
 def main():
@@ -58,7 +58,7 @@ def main():
         with col2:
             st.markdown('<p style="text-align: center;">Text detection output</p>',unsafe_allow_html=True)
             cvImg = image.copy() #cv2.imread(image)
-            '''
+            
             # recognize text
             result = recognize_text(cvImg)
             
@@ -71,7 +71,7 @@ def main():
 
                 # create a rectangle for bbox display
                 cv2.rectangle(img=cvImg, pt1=top_left, pt2=bottom_right, color=(255, 0, 0), thickness=10)
-                '''
+                
                   
             st.image(cvImg, width=600)
     
