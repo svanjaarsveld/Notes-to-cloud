@@ -47,6 +47,7 @@ def main():
     #Add column headings
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
+        cvImg = cv2.imread(uploaded_file)
         #cwd = Path.cwd()
         #image.save(cwd + '/Images/photo.jpg', 'JPEG')
         
@@ -57,10 +58,10 @@ def main():
     
         with col2:
             st.markdown('<p style="text-align: center;">Text detection output</p>',unsafe_allow_html=True)
-            cvImg = image.copy() #cv2.imread(image)
+            #cvImg = image.copy() #cv2.imread(image)
             
             # recognize text
-            result = recognize_text(uploaded_file)
+            result = recognize_text(cvImg)
             
             for (bbox, text, prob) in result:
                 print(f'Detected text: {text} (Probability: {prob:.2f})')
