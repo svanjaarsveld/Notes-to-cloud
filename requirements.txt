@@ -1,5 +1,1 @@
-gspread
-google
-cv2
 streamlit
-pandas
