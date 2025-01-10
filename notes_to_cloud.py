@@ -47,9 +47,6 @@ def main():
     #Add column headings
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
-        cvImg = cv2.imread(uploaded_file)
-        #cwd = Path.cwd()
-        #image.save(cwd + '/Images/photo.jpg', 'JPEG')
         
         col1, col2 = st.columns( [0.5, 0.5])
         with col1:
@@ -58,20 +55,20 @@ def main():
     
         with col2:
             st.markdown('<p style="text-align: center;">Text detection output</p>',unsafe_allow_html=True)
-            #cvImg = image.copy() #cv2.imread(image)
+            cvImg = image.copy() #cv2.imread(image)
             
             # recognize text
-            result = recognize_text(cvImg)
+            #result = recognize_text(cvImg)
             
-            for (bbox, text, prob) in result:
-                print(f'Detected text: {text} (Probability: {prob:.2f})')
-                # get top-left and bottom-right bbox vertices
-                (top_left, top_right, bottom_right, bottom_left) = bbox
-                top_left = (int(top_left[0]), int(top_left[1]))
-                bottom_right = (int(bottom_right[0]), int(bottom_right[1]))
+#            for (bbox, text, prob) in result:
+#                print(f'Detected text: {text} (Probability: {prob:.2f})')
+#                # get top-left and bottom-right bbox vertices
+#                (top_left, top_right, bottom_right, bottom_left) = bbox
+#                top_left = (int(top_left[0]), int(top_left[1]))
+#                bottom_right = (int(bottom_right[0]), int(bottom_right[1]))
 
                 # create a rectangle for bbox display
-                cv2.rectangle(img=cvImg, pt1=top_left, pt2=bottom_right, color=(255, 0, 0), thickness=10)
+#                cv2.rectangle(img=cvImg, pt1=top_left, pt2=bottom_right, color=(255, 0, 0), thickness=10)
                 
                   
             st.image(cvImg, width=600)
