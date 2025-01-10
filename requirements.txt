@@ -1,0 +1,6 @@
+gspread
+google
+easyocr
+cv2
+streamlit
+pandas
