@@ -60,7 +60,7 @@ def main():
             cvImg = image.copy() #cv2.imread(image)
             
             # recognize text
-            result = recognize_text(cvImg)
+            result = recognize_text(uploaded_file)
             
             for (bbox, text, prob) in result:
                 print(f'Detected text: {text} (Probability: {prob:.2f})')
