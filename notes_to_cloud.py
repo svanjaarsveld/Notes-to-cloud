@@ -6,11 +6,11 @@ Created on Fri Jan 10 08:54:37 2025
 """
 
 # Import libraries
-import gspread
-import pandas as pd
-from google.oauth2.service_account import Credentials
-import cv2
-from  PIL import Image, ImageEnhance
+#import gspread
+#import pandas as pd
+#from google.oauth2.service_account import Credentials
+#import cv2
+from  PIL import Image
 import streamlit as st
 #import easyocr
 #from pathlib import Path
