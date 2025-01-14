@@ -57,7 +57,7 @@ def main():
         with col2:
             st.markdown('<p style="text-align: center;">Text detection output</p>',unsafe_allow_html=True)
             rawBytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
-            cvImg = imdecode(rawBytes,cv2.IMREAD_COLOR)
+            cvImg = cv2.imdecode(rawBytes,cv2.IMREAD_COLOR)
             
             # recognize text
             result = recognize_text(cvImg)
