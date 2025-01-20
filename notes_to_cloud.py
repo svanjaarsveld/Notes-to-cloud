@@ -60,18 +60,7 @@ def main():
             st.markdown('<p style="text-align: center;">Text detection output</p>',unsafe_allow_html=True)
            
             
-            # recognize text
-            result = recognize_text(rawBytes)
             
-            for (bbox, text, prob) in result:
-                print(f'Detected text: {text} (Probability: {prob:.2f})')
-                # get top-left and bottom-right bbox vertices
-                (top_left, top_right, bottom_right, bottom_left) = bbox
-                top_left = (int(top_left[0]), int(top_left[1]))
-                bottom_right = (int(bottom_right[0]), int(bottom_right[1]))
-
-                # create a rectangle for bbox display
-                cv2.rectangle(img=cvImg, pt1=top_left, pt2=bottom_right, color=(255, 0, 0), thickness=10)
                 
                   
             st.image(cvImg, width=600)
