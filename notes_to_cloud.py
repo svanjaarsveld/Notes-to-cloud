@@ -47,20 +47,21 @@ def main():
     
     #Add column headings
     if uploaded_file is not None:
-        image = Image.open(uploaded_file)
+        #image = Image.open(uploaded_file)
+        rawBytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
+        cvImg = cv2.imdecode(rawBytes,cv2.IMREAD_COLOR)
         
         col1, col2 = st.columns( [0.5, 0.5])
         with col1:
             st.markdown('<p style="text-align: center;">Original</p>',unsafe_allow_html=True)
-            st.image(image,width=600)  
+            st.image(cvImg,channels='BGR',use_column_width=True)  
     
         with col2:
             st.markdown('<p style="text-align: center;">Text detection output</p>',unsafe_allow_html=True)
-            rawBytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
-            cvImg = cv2.imdecode(rawBytes,cv2.IMREAD_COLOR)
+           
             
             # recognize text
-            result = recognize_text(cvImg)
+            result = recognize_text(rawBytes)
             
             for (bbox, text, prob) in result:
                 print(f'Detected text: {text} (Probability: {prob:.2f})')
