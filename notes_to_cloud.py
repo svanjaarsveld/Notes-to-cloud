@@ -67,7 +67,7 @@ def main():
                 # create a rectangle for bbox display
                 cv2.rectangle(img=cvImg, pt1=top_left, pt2=bottom_right, color=(0, 255, 0), thickness=3)
                               
-            st.image(cvImg, width=600)
+            st.image(cvImg, channels='BGR',use_container_width=True)
             
             
     
